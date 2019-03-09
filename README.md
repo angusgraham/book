@@ -2,16 +2,19 @@
 
 [![Build Status](https://travis-ci.org/rust-lang/book.svg?branch=master)](https://travis-ci.org/rust-lang/book)
 
-This repository contains the source of "The Rust Programming Language" book.
+This repository contains the source of "The Rust Programming Language with Examples for Visual Studio Code" book.
+It is a fork of https://github.com/rust-lang/book which contains the source of "The Rust Programming Language".
 
-[The book is available in dead-tree form from No Starch Press][nostarch]
+This fork simply adds a new chapter explaining how to use Rust from within VSCode and few notes here and there.
+
+[The original book (not this forked version) is available in dead-tree form from No Starch Press][nostarch]
 
 [nostarch]: https://nostarch.com/rust
 
-You can also read the book for free online. Please see the book as shipped with
-the latest [stable], [beta], or [nightly] Rust releases. Be aware that issues
-in those versions may have been fixed in this repository already, as those
-releases are updated less frequently.
+You can also read the original book for free online. Please see the book as 
+shipped with the latest [stable], [beta], or [nightly] Rust releases. Be aware 
+that issues in those versions may have been fixed in this repository already, 
+as those releases are updated less frequently.
 
 [stable]: https://doc.rust-lang.org/stable/book/
 [beta]: https://doc.rust-lang.org/beta/book/
