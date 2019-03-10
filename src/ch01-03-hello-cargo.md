@@ -289,14 +289,22 @@ Cargo coordinate the build.
 
 Even though the `hello_cargo` project is simple, it now uses much of the real
 tooling you’ll use in the rest of your Rust career. In fact, to work on any
-existing projects, you can use the following commands to check out the code
-using Git, change to that project’s directory, and build:
+existing projects, you can check out the code using Git.
 
-```text
-$ git clone someurl.com/someproject
-$ cd someproject
-$ cargo build
-```
+VSCode has built-in support for Git. You can clone a Git repository with the
+Git: Clone command in the Command Palette. You will be asked for
+the URL of the remote repository (for example on GitHub) and the parent
+directory under which to put the local repository.
+
+> To achieve the same thing via the terminal, change to that project’s directory
+> and run these commands:
+>
+> ```text
+> $ git clone someurl.com/someproject
+> $ cd someproject
+> $ cargo build
+> ```
+
 
 For more information about Cargo, check out [its documentation].
 
