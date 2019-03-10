@@ -91,9 +91,9 @@ Install the Rust RLS extension from [the VSCode Marketplace][rlsextmarketplace]
   (or in VSCode's built in extension browser accessible from the View menu or 
    by entering `ext install rust-lang.rust` in the command palette <kbd>Ctrl</kbd>+<kbd>P</kbd>).
 
-The RLS extension takes its name from the Rust Language Server that is uses
-internally to parse Rust code. The Rust Language Server that it relies is
-yet yet installed: that is still coming.
+The RLS extension takes its name from the Rust Language Server that it uses
+internally to parse Rust code. The Rust Language Server that it relies on is
+not yet installed: we will get to that.
 
 The RLS extension adds lots of great features to VSCode for Rust programmers 
 such as syntax coloring and documentation but one thing it does not handle is 
