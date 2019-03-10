@@ -35,14 +35,17 @@ the following:
 
 ```text
 $ cargo new hello_cargo
-$ cd hello_cargo
 ```
 
-The first command creates a new directory called *hello_cargo*. We’ve named
+This command creates a new directory called *hello_cargo*. We’ve named
 our project *hello_cargo*, and Cargo creates its files in a directory of the
 same name.
 
-Go into the *hello_cargo* directory and list the files. You’ll see that Cargo
+Open the hello_cargo project (`File > Add Folder to Workspace...`). Open the 
+folder for the whole project (i.e., the folder containing *Cargo.toml*), not 
+the *src* folder.
+  
+Take a look at the files your new untitled workspace. You’ll see that Cargo
 has generated two files and one directory for us: a *Cargo.toml* file and a
 *src* directory with a *main.rs* file inside. It has also initialized a new Git
 repository along with a *.gitignore* file.
@@ -51,8 +54,7 @@ repository along with a *.gitignore* file.
 > use a different version control system or no version control system by using
 > the `--vcs` flag. Run `cargo new --help` to see the available options.
 
-Open *Cargo.toml* in your text editor of choice. It should look similar to the
-code in Listing 1-2.
+Open *Cargo.toml*. It should look similar to the code in Listing 1-2.
 
 <span class="filename">Filename: Cargo.toml</span>
 
@@ -118,37 +120,100 @@ file.
 ### Building and Running a Cargo Project
 
 Now let’s look at what’s different when we build and run the Hello, world!
-program with Cargo! From your *hello_cargo* directory, build your project by
-entering the following command:
+program with Cargo! To build your project, make sure you have the main.rs file
+open, and press <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>B</kbd>, or enter `run task` in the command 
+palette and then select the `Rust: cargo build` task. Whichever method you choose 
+you should see the following output:
 
 ```text
-$ cargo build
    Compiling hello_cargo v0.1.0 (file:///projects/hello_cargo)
     Finished dev [unoptimized + debuginfo] target(s) in 2.85 secs
 ```
 
-This command creates an executable file in *target/debug/hello_cargo* (or
-*target\debug\hello_cargo.exe* on Windows) rather than in your current
-directory. You can run the executable with this command:
+> A third method would be to use a terminal and from your *hello_cargo* 
+> directory, build your project by entering the command `cargo build`.
 
-```text
-$ ./target/debug/hello_cargo # or .\target\debug\hello_cargo.exe on Windows
-Hello, world!
+This creates an executable file in *target/debug/hello_cargo* (or
+*target\debug\hello_cargo.exe* on Windows) rather than in your current
+directory.
+
+Now it's time to run your executable. From the Debug menu select Start 
+Debugging or simply press F5.
+
+Since this is the first time you've run anything from this folder, VSCode
+will ask you what debugger you would like to use. 
+
+If you are on Windows and you've followed the suggested installation steps 
+earlier in this book, then you will want to use the Microsoft PDB debugger, 
+so select `C++ Windows`.
+
+On other platforms, (or if you are on Windows and have elected to not use 
+the Visual Studio toolchain) select `C++ (GDB/LLDB)`.
+
+At this point VSCode still doesn't know where to find the executable to run.
+It will create a new file called *hello_cargo/.vscode/launch.json* and open
+it for you to edit. It should look something like this:
+
+```json
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "(Windows) Launch",
+            "type": "cppvsdbg",
+            "request": "launch",
+            "program": "enter program name, for example ${workspaceFolder}/a.exe",
+            "args": [],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}",
+            "environment": [],
+            "externalConsole": true
+        }
+    ]
+}
 ```
 
-If all goes well, `Hello, world!` should print to the terminal. Running `cargo
-build` for the first time also causes Cargo to create a new file at the top
-level: *Cargo.lock*. This file keeps track of the exact versions of
+Change the `program` value to *${workspaceFolder}/target/debug/hello_cargo* or 
+ *${workspaceFolder}\\target\\debug\\hello_cargo.exe* on Windows.
+
+ Change `externalConsole` to false so that the program's output is directed to 
+ VSCode's debug console pane (otherwise our program's output console will close 
+ before we get a chance to see our program's beautiful output).
+
+If all goes well, `Hello, world!` should print to VSCode's debug console. Press
+<kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>Y</kbd> to switch to the debug console if
+you don't see it.
+
+Running `cargo build` for the first time also causes Cargo to create a new file 
+at the top level: *Cargo.lock*. This file keeps track of the exact versions of
 dependencies in your project. This project doesn’t have dependencies, so the
 file is a bit sparse. You won’t ever need to change this file manually; Cargo
 manages its contents for you.
 
-We just built a project with `cargo build` and ran it with
-`./target/debug/hello_cargo`, but we can also use `cargo run` to compile the
-code and then run the resulting executable all in one command:
+Now let's try some debugging. Change the program to look like this:
+
+```rust
+fn main() {
+    let world = "world";
+    println!("Hello, {}", world);
+}
+```
+
+Now click to the left of the third line, or press <kbd>F9</kbd> on that line to place
+a breakpoint.
+
+Build your program, then run it. You should see the program stop at the line
+and you'll be able to inspect the `world` String variable and see the 
+callstack. Press <kbd>F5</kbd> to continue the program and let it finish.
+
+We told VSCode to run 'cargo build' and then we told VSCode to run (and debug) 
+the built executable. Another way to run it would be to simply tell cargo to 
+compile the code and then run the resulting executable via the 
+`Rust: cargo run` task, or entering `cargo run` into the terminal.
+
+If we did that would see the following output:
 
 ```text
-$ cargo run
     Finished dev [unoptimized + debuginfo] target(s) in 0.0 secs
      Running `target/debug/hello_cargo`
 Hello, world!
@@ -160,7 +225,6 @@ the binary. If you had modified your source code, Cargo would have rebuilt the
 project before running it, and you would have seen this output:
 
 ```text
-$ cargo run
    Compiling hello_cargo v0.1.0 (file:///projects/hello_cargo)
     Finished dev [unoptimized + debuginfo] target(s) in 0.33 secs
      Running `target/debug/hello_cargo`
@@ -183,10 +247,15 @@ speed up the process! As such, many Rustaceans run `cargo check` periodically
 as they write their program to make sure it compiles. Then they run `cargo
 build` when they’re ready to use the executable.
 
+Just like `cargo build`, `cargo check` is available as a VSCode task thanks to
+to the RLS extension. You can bind the task to a keystroke if you so desire.
+
 Let’s recap what we’ve learned so far about Cargo:
 
-* We can build a project using `cargo build` or `cargo check`.
-* We can build and run a project in one step using `cargo run`.
+* We can build a project via VSCode task or terminal command.
+* We can execute and debug the executable via VSCode task.
+* We can build and run a project in one step using `cargo run` task or
+  terminal command.
 * Instead of saving the result of the build in the same directory as our code,
   Cargo stores it in the *target/debug* directory.
 
