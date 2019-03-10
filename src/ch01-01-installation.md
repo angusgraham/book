@@ -128,7 +128,7 @@ in the extension browser.
 Although the C/C++ extension is capable of debugging Rust executables, it does 
 not add support for adding breakpoints to Rust's `.rs` source files.
 The simplest way to fix this is to open Settings from the File, Preferences 
-menu, and in the Features, Debug section enable "Allow settings breakpoints in 
+menu, and in the Features, Debug section enable "Allow setting breakpoints in 
 any file."
 
 [cpptoolsextmarketplace]: https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools
