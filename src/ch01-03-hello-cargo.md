@@ -296,6 +296,10 @@ Git: Clone command in the Command Palette. You will be asked for
 the URL of the remote repository (for example on GitHub) and the parent
 directory under which to put the local repository.
 
+> VS Code will leverage your machine's Git installation, so you need to install
+> Git first before you get these features. Make sure you install at least
+> version 2.0.0.
+
 > To achieve the same thing via the terminal, change to that project’s directory
 > and run these commands:
 >
