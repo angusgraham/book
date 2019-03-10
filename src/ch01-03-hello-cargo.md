@@ -250,6 +250,10 @@ build` when they’re ready to use the executable.
 Just like `cargo build`, `cargo check` is available as a VSCode task thanks to
 to the RLS extension. You can bind the task to a keystroke if you so desire.
 
+You will probably find that because the RLS extension is always watching to see
+if there are errors in your code and adding "squigglies" to those errors, you
+won't have as much use for `cargo check` as those who work without IDE support.
+
 Let’s recap what we’ve learned so far about Cargo:
 
 * We can build a project via VSCode task or terminal command.
