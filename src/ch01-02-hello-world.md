@@ -4,6 +4,16 @@ Now that you’ve installed Rust, let’s write your first Rust program. It’s
 traditional when learning a new language to write a little program that prints
 the text `Hello, world!` to the screen, so we’ll do the same here!
 
+> ### Building and Running from the Terminal
+>
+> If you are following along from the previous chapter, you have VSCode
+> installed, and various extensions needed to open 'cargo' projects, and
+> debug them. However VSCode is not yet fully set up to run Rust programs,
+> and Rust's `cargo` build system and package manager has not been introduced
+> yet. Not to worry! Open a terminal and follow along with this chapter
+> and we will introduce building and running from within VSCode in the next
+> chapter.
+
 ### Creating a Project Directory
 
 You’ll start by making a directory to store your Rust code. It doesn’t matter
