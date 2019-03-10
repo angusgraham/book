@@ -200,6 +200,13 @@ The installer also includes a copy of the documentation locally, so you can
 read it offline. Run `rustup doc` to open the local documentation in your
 browser.
 
+> ### Local Version of This Book is 'master'
+>
+> Note that an up-to-date version of this book is itself contained in the local
+> documentation, but that version is not the fork with VSCode notes added. For 
+> example the sentence you are reading right now is not contained in the 
+> version that is now installed on your local machine.
+
 Any time a type or function is provided by the standard library and you’re not
 sure what it does or how to use it, use the application programming interface
 (API) documentation to find out!
