@@ -37,17 +37,17 @@ the following:
 $ cargo new hello_cargo
 ```
 
-This command creates a new directory called *hello_cargo*. We’ve named
-our project *hello_cargo*, and Cargo creates its files in a directory of the
-same name.
+This command creates a new directory called *hello_cargo*. We’ve named our
+project *hello_cargo*, and Cargo creates its files in a directory of the same
+name.
 
-Open the hello_cargo project (`File > Add Folder to Workspace...`). Open the 
-folder for the whole project (i.e., the folder containing *Cargo.toml*), not 
-the *src* folder.
+Open the hello_cargo project (`File > Add Folder to Workspace...`). Open the
+folder for the whole project (i.e., the folder containing *Cargo.toml*), not the
+*src* folder.
   
-Take a look at the files your new untitled workspace. You’ll see that Cargo
-has generated two files and one directory for us: a *Cargo.toml* file and a
-*src* directory with a *main.rs* file inside. It has also initialized a new Git
+Take a look at the files your new untitled workspace. You’ll see that Cargo has
+generated two files and one directory for us: a *Cargo.toml* file and a *src*
+directory with a *main.rs* file inside. It has also initialized a new Git
 repository along with a *.gitignore* file.
 
 > Note: Git is a common version control system. You can change `cargo new` to
@@ -121,9 +121,9 @@ file.
 
 Now let’s look at what’s different when we build and run the Hello, world!
 program with Cargo! To build your project, make sure you have the main.rs file
-open, and press <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>B</kbd>, or enter `run task` in the command 
-palette and then select the `Rust: cargo build` task. Whichever method you choose 
-you should see the following output:
+open, and press <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>B</kbd>, or enter
+`run task` in the command palette and then select the `Rust: cargo build` task.
+Whichever method you choose you should see the following output:
 
 ```text
    Compiling hello_cargo v0.1.0 (file:///projects/hello_cargo)
@@ -137,22 +137,22 @@ This creates an executable file in *target/debug/hello_cargo* (or
 *target\debug\hello_cargo.exe* on Windows) rather than in your current
 directory.
 
-Now it's time to run your executable. From the Debug menu select Start 
-Debugging or simply press F5.
+Now it's time to run your executable. From the Debug menu select Start Debugging
+or simply press F5.
 
-Since this is the first time you've run anything from this folder, VSCode
-will ask you what debugger you would like to use. 
+Since this is the first time you've run anything from this folder, VSCode will
+ask you what debugger you would like to use.
 
-If you are on Windows and you've followed the suggested installation steps 
-earlier in this book, then you will want to use the Microsoft PDB debugger, 
-so select `C++ Windows`.
+If you are on Windows and you've followed the suggested installation steps
+earlier in this book, then you will want to use the Microsoft PDB debugger, so
+select `C++ (Windows)`.
 
-On other platforms, (or if you are on Windows and have elected to not use 
-the Visual Studio toolchain) select `C++ (GDB/LLDB)`.
+On other platforms, (or if you are on Windows and have elected to not use the
+Visual Studio toolchain) select `C++ (GDB/LLDB)`.
 
-At this point VSCode still doesn't know where to find the executable to run.
-It will create a new file called *hello_cargo/.vscode/launch.json* and open
-it for you to edit. It should look something like this:
+At this point VSCode still doesn't know where to find the executable to run. It
+will create a new file called *hello_cargo/.vscode/launch.json* and open it for
+you to edit. It should look something like this:
 
 ```json
 {
@@ -173,12 +173,12 @@ it for you to edit. It should look something like this:
 }
 ```
 
-Change the `program` value to *${workspaceFolder}/target/debug/hello_cargo* or 
- *${workspaceFolder}\\target\\debug\\hello_cargo.exe* on Windows.
+Change the `program` value to *${workspaceFolder}/target/debug/hello_cargo* or
+*${workspaceFolder}\\\\target\\\\debug\\\\hello_cargo.exe* on Windows.
 
- Change `externalConsole` to false so that the program's output is directed to 
- VSCode's debug console pane (otherwise our program's output console will close 
- before we get a chance to see our program's beautiful output).
+Change `externalConsole` to false so that the program's output is directed to
+VSCode's debug console pane (otherwise our program's output console will close
+before we get a chance to see our program's beautiful output).
 
 If all goes well, `Hello, world!` should print to VSCode's debug console. Press
 <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>Y</kbd> to switch to the debug console if
@@ -199,17 +199,17 @@ fn main() {
 }
 ```
 
-Now click to the left of the third line, or press <kbd>F9</kbd> on that line to place
-a breakpoint.
+Now click to the left of the third line, or press <kbd>F9</kbd> on that line to
+place a breakpoint.
 
-Build your program, then run it. You should see the program stop at the line
-and you'll be able to inspect the `world` String variable and see the 
-callstack. Press <kbd>F5</kbd> to continue the program and let it finish.
+Build your program, then run it. You should see the program stop at the line and
+you'll be able to inspect the `world` String variable and see the callstack.
+Press <kbd>F5</kbd> to continue the program and let it finish.
 
-We told VSCode to run 'cargo build' and then we told VSCode to run (and debug) 
-the built executable. Another way to run it would be to simply tell cargo to 
-compile the code and then run the resulting executable via the 
-`Rust: cargo run` task, or entering `cargo run` into the terminal.
+We told VSCode to run 'cargo build' and then we told VSCode to run (and debug)
+the built executable. Another way to run it would be to simply tell cargo to
+compile the code and then run the resulting executable via the `Rust: cargo run`
+task, or entering `cargo run` into the terminal.
 
 If we did that would see the following output:
 
