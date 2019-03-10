@@ -23,15 +23,15 @@ using these steps should work as expected with the content of this book.
 > previous command. Additionally, PowerShell-specific examples will use `>`
 > rather than `$`.
 
-> ### The Visual Studio Code Integrated Terminal
+> ### The Visual Studio Code Integrated Terminal 
 >
 > When you are working in VSCode, you have two options for entering terminal
-> commands. You can create a terminal in the usual manner for your platform,
-> or you can use the VSCode integrated terminal.
-> To show or hide the integrated terminal, press <kbd>Ctrl</kbd>+<kbd>`</kbd>.
-> Once you have the RLS extension installed (see below) you will also be able 
-> to in some cases use new tasks bound to shortcut keys or the command palette 
-> rather than the given terminal command.
+> commands. You can create a terminal in the usual manner for your platform, or
+> you can use the VSCode integrated terminal. To show or hide the integrated
+> terminal, press <kbd>Ctrl</kbd>+<kbd>`</kbd>. Once you have the RLS extension
+> installed (see below) you will also be able to in some cases use new tasks
+> bound to shortcut keys or the command palette rather than the given terminal
+> command.
 
 ### Installing `rustup` on Linux or macOS
 
@@ -98,55 +98,58 @@ VSCode installed and running, restart it now.
 If not, [download][visualstudiocode], install and run it.
 
 Install the Rust RLS extension from [the VSCode Marketplace][rlsextmarketplace]
-  (or in VSCode's built in extension browser accessible from the View menu or 
-   by entering `ext install rust-lang.rust` in the command palette <kbd>Ctrl</kbd>+<kbd>P</kbd>).
+(or in VSCode's built in extension browser accessible from the View menu or by
+entering `ext install rust-lang.rust` in the command palette
+<kbd>Ctrl</kbd>+<kbd>P</kbd>).
 
 The RLS extension takes its name from the Rust Language Server that it uses
-internally to parse Rust code. The Rust Language Server that it relies on is
-not yet installed: we will get to that.
+internally to parse Rust code. The Rust Language Server that it relies on is not
+yet installed: we will get to that.
 
-The RLS extension adds lots of great features to VSCode for Rust programmers 
-such as syntax coloring and documentation but one thing it does not handle is 
-debugging of your built executable. For that we must install a native 
-executable debugger.
+The RLS extension adds lots of great features to VSCode for Rust programmers
+such as syntax coloring and documentation but one thing it does not handle is
+debugging of your built executable. For that we must install a native executable
+debugger.
 
 [visualstudiocode]: https://code.visualstudio.com/
 [rlsextmarketplace]: https://marketplace.visualstudio.com/items?itemName=rust-lang.rust
 
 ### Installing PDB Debugging Extension on Windows
 
-If you are using VSCode on Windows and you've followed the above instructions for 
-installing Rust then executables will be built by the Visual Studio 2017 toolchain 
-with debugging info in the PDB format.
+If you are using VSCode on Windows and you've followed the above instructions
+for installing Rust then executables will be built by the Visual Studio 2017
+toolchain with debugging info in the PDB format.
 
 The most commonly used extension that provides debugging support for PDB
-executables is the one provided by Microsoft that is intended for debugging C/C++
-programs. As above, you can install it from [the VSCode Marketplace][cpptoolsextmarketplace], 
-via the command `ext install ms-vscode.cpptools`, or simply searching for `C/C++` 
-in the extension browser.
+executables is the one provided by Microsoft that is intended for debugging
+C/C++ programs. As above, you can install it from 
+[the VSCode Marketplace][cpptoolsextmarketplace], via the command 
+`ext install ms-vscode.cpptools`, or simply searching for `C/C++` in the 
+extension browser.
 
-Although the C/C++ extension is capable of debugging Rust executables, it does 
-not add support for adding breakpoints to Rust's `.rs` source files.
-The simplest way to fix this is to open Settings from the File, Preferences 
-menu, and in the Features, Debug section enable "Allow setting breakpoints in 
-any file."
+Although the C/C++ extension is capable of debugging Rust executables, it does
+not add support for adding breakpoints to Rust's `.rs` source files. The
+simplest way to fix this is to open Settings from the File, Preferences menu,
+and in the Features, Debug section enable "Allow setting breakpoints in any
+file."
 
 [cpptoolsextmarketplace]: https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools
 
 ### Installing Native Debugging Extension on non-Windows Platforms
 
-A popular extension for debugging the DWARF executables created on non-Windows platforms
-by the Rust compiler is called Native Debug. As above, you can install it from 
-[the VSCode Marketplace][webfreakextmarketplace], via the command `ext install webfreak.debug`, 
-or simply searching for `Native Debug` in the extension browser.
+A popular extension for debugging the DWARF executables created on non-Windows
+platforms by the Rust compiler is called Native Debug. As above, you can install
+it from [the VSCode Marketplace][webfreakextmarketplace], via the command
+`ext install webfreak.debug`, or simply searching for `Native Debug` in the
+extension browser.
 
 [webfreakextmarketplace]: https://marketplace.visualstudio.com/items?itemName=webfreak.debug
 
 ### More Useful extensions
 
-cargo makes use of `.toml` files for project settings. 
-`ext install bungcip.better-toml` will install an extension that provides 
-syntax coloring for these files.
+cargo makes use of `.toml` files for project settings.
+`ext install bungcip.better-toml` will install an extension that provides syntax
+coloring for these files.
 
 ### Updating and Uninstalling
 
@@ -204,8 +207,8 @@ browser.
 >
 > Note that an up-to-date version of this book is itself contained in the local
 > documentation, but that version is not the fork with VSCode notes added. For 
-> example the sentence you are reading right now is not contained in the 
-> version that is now installed on your local machine.
+> example the sentence you are reading right now is not contained in the version
+> that is now installed on your local machine.
 
 Any time a type or function is provided by the standard library and you’re not
 sure what it does or how to use it, use the application programming interface
