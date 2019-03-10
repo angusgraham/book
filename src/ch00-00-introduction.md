@@ -1,8 +1,9 @@
 # Introduction
 
-> Note: This edition of the book is the same as [The Rust Programming
-> Language][nsprust] available in print and ebook format from [No Starch
-> Press][nsp].
+> Note: This edition of the book contains notes specifically for those using
+> Rust from within the Visual Studio Code IDE, and is otherwise the same as 
+> [The Rust Programming Language][nsprust] available in print and ebook format 
+> from [No Starch Press][nsp].
 
 [nsprust]: https://nostarch.com/rust
 [nsp]: https://nostarch.com/
@@ -185,7 +186,9 @@ doesn’t compile.
 
 ## Source Code
 
-The source files from which this book is generated can be found on
-[GitHub][book].
+The source files from which the VSCode fork of this book is generated 
+can be found on [GitHub][bookfork].
+The original book's source files are at [GitHub][book].
 
+[bookfork]: https://github.com/angusgraham/book/tree/master/src
 [book]: https://github.com/rust-lang/book/tree/master/src
