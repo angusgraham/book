@@ -23,6 +23,16 @@ using these steps should work as expected with the content of this book.
 > previous command. Additionally, PowerShell-specific examples will use `>`
 > rather than `$`.
 
+> ### The Visual Studio Code Integrated Terminal
+>
+> When you are working in VSCode, you have two options for entering terminal
+> commands. You can create a terminal in the usual manner for your platform,
+> or you can use the VSCode integrated terminal.
+> To show or hide the integrated terminal, press <kbd>Ctrl</kbd>+<kbd>`</kbd>.
+> Once you have the RLS extension installed (see below) you will also be able 
+> to in some cases use new tasks bound to shortcut keys or the command palette 
+> rather than the given command.
+
 ### Installing `rustup` on Linux or macOS
 
 If you’re using Linux or macOS, open a terminal and enter the following command:
