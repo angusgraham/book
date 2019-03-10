@@ -80,18 +80,25 @@ the Other Tools and Frameworks section.
 The rest of this book uses commands that work in both *cmd.exe* and PowerShell.
 If there are specific differences, we’ll explain which to use.
 
-### Installing Visual Studio Code and extensions
+### Installing Visual Studio Code and Rust's RLS Extension
 
 Installing Rust changes your system's environment (PATH) so if you already have 
 VSCode installed and running, restart it now.
+
 If not, [download][visualstudiocode], install and run it.
+
 Install the Rust RLS extension from [the VSCode Marketplace][rlsextmarketplace]
   (or in VSCode's built in extension browser accessible from the View menu or 
    by entering `ext install rust-lang.rust` in the command palette <kbd>Ctrl</kbd>+<kbd>P</kbd>).
+
+The RLS extension takes its name from the Rust Language Server that is uses
+internally to parse Rust code. The Rust Language Server that it relies is
+yet yet installed: that is still coming.
+
 The RLS extension adds lots of great features to VSCode for Rust programmers 
 such as syntax coloring and documentation but one thing it does not handle is 
-debugging of your built executable. For that we must install a native C/C++ 
-debugger.
+debugging of your built executable. For that we must install a native 
+executable debugger.
 
 [visualstudiocode]: https://code.visualstudio.com/
 [rlsextmarketplace]: https://marketplace.visualstudio.com/items?itemName=rust-lang.rust
@@ -102,10 +109,11 @@ If you are using VSCode on Windows and you've followed the above instructions fo
 installing Rust then executables will be built by the Visual Studio 2017 toolchain 
 with debugging info in the PDB format.
 
-The most commonly used C/C++ extension that provides debugging support for PDB
-executables is the one provided by Microsoft. As above, you can install it from 
-[the VSCode Marketplace][cpptoolsextmarketplace], via the command `ext install ms-vscode.cpptools`, 
-or simply searching for `C/C++` in the extension browser.
+The most commonly used extension that provides debugging support for PDB
+executables is the one provided by Microsoft that is intended for debugging C/C++
+programs. As above, you can install it from [the VSCode Marketplace][cpptoolsextmarketplace], 
+via the command `ext install ms-vscode.cpptools`, or simply searching for `C/C++` 
+in the extension browser.
 
 Although the C/C++ extension is capable of debugging Rust executables, it does 
 not add support for adding breakpoints to Rust's `.rs` source files.
