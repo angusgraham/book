@@ -31,7 +31,7 @@ using these steps should work as expected with the content of this book.
 > To show or hide the integrated terminal, press <kbd>Ctrl</kbd>+<kbd>`</kbd>.
 > Once you have the RLS extension installed (see below) you will also be able 
 > to in some cases use new tasks bound to shortcut keys or the command palette 
-> rather than the given command.
+> rather than the given terminal command.
 
 ### Installing `rustup` on Linux or macOS
 
