@@ -54,20 +54,31 @@ fn main() {
 }
 ```
 
-Now let’s compile this “Hello, world!” program and run it in the same step
-using the `cargo run` command:
+As before, we will need to modify the launch.json file after we press
+<kbd>F5</kbd> to run this program. This time we are going to leave
+externalConsole set to true since we are going to be making more use of the
+console in this program.
 
-```text
-$ cargo run
-   Compiling guessing_game v0.1.0 (file:///projects/guessing_game)
-    Finished dev [unoptimized + debuginfo] target(s) in 1.50 secs
-     Running `target/debug/guessing_game`
-Hello, world!
+However, we still need to deal with the fact since our program is being launched
+from the VSCode gui, after "Hello, world!" is printed the external console that
+VSCode created for it will disappear before we have a chance to examine it. To
+fix that we will modify the program to wait for the user to press
+<kbd>Enter</kbd>
+
+```rust
+use std::io;
+use std::io::*;
+
+fn main() {
+    println!("Hello world!");
+
+    println!("Press enter to continue...");
+    let _ = io::stdin().read(&mut [0u8]);
+}
 ```
 
-The `run` command comes in handy when you need to rapidly iterate on a project,
-as we’ll do in this game, quickly testing each iteration before moving on to
-the next one.
+Run it now and check that you see the external console open up and wait for your
+input.
 
 Reopen the *src/main.rs* file. You’ll be writing all the code in this file.
 
@@ -82,6 +93,7 @@ allow the player to input a guess. Enter the code in Listing 2-1 into
 
 ```rust,ignore
 use std::io;
+use std::io::*;
 
 fn main() {
     println!("Guess the number!");
@@ -94,6 +106,9 @@ fn main() {
         .expect("Failed to read line");
 
     println!("You guessed: {}", guess);
+
+    println!("Press enter to continue...");
+    let _ = io::stdin().read(&mut [0u8]);
 }
 ```
 
@@ -518,6 +533,7 @@ Now that you’ve added the `rand` crate to *Cargo.toml*, let’s start using
 
 ```rust,ignore
 use std::io;
+use std::io::*;
 use rand::Rng;
 
 fn main() {
@@ -535,6 +551,9 @@ fn main() {
         .expect("Failed to read line");
 
     println!("You guessed: {}", guess);
+
+    println!("Press enter to continue...");
+    let _ = io::stdin().read(&mut [0u8]);
 }
 ```
 
@@ -602,6 +621,7 @@ will explain.
 
 ```rust,ignore,does_not_compile
 use std::io;
+use std::io::*;
 use std::cmp::Ordering;
 use rand::Rng;
 
@@ -616,6 +636,9 @@ fn main() {
         Ordering::Greater => println!("Too big!"),
         Ordering::Equal => println!("You win!"),
     }
+
+    println!("Press enter to continue...");
+    let _ = io::stdin().read(&mut [0u8]);
 }
 ```
 
@@ -712,6 +735,9 @@ do that by adding the following two lines to the `main` function body:
         Ordering::Greater => println!("Too big!"),
         Ordering::Equal => println!("You win!"),
     }
+
+    println!("Press enter to continue...");
+    let _ = io::stdin().read(&mut [0u8]);
 }
 ```
 
@@ -813,6 +839,9 @@ more chances at guessing the number:
             Ordering::Equal => println!("You win!"),
         }
     }
+
+    println!("Press enter to continue...");
+    let _ = io::stdin().read(&mut [0u8]);
 }
 ```
 
@@ -877,6 +906,9 @@ Let’s program the game to quit when the user wins by adding a `break` statemen
             }
         }
     }
+
+    println!("Press enter to continue...");
+    let _ = io::stdin().read(&mut [0u8]);
 }
 ```
 
@@ -967,6 +999,7 @@ secret number. Listing 2-6 shows the final code.
 
 ```rust,ignore
 use std::io;
+use std::io::*;
 use std::cmp::Ordering;
 use rand::Rng;
 
@@ -999,6 +1032,9 @@ fn main() {
             }
         }
     }
+
+    println!("Press enter to continue...");
+    let _ = io::stdin().read(&mut [0u8]);
 }
 ```
 
